@@ -75,6 +75,7 @@ st.markdown(f"""
         font-weight: bold;
         background: rgba(255, 255, 255, 0.95);
     }}
+
     .stButton button {{
         background: linear-gradient(to right, #ff416c, #ff4b2b);
         color: white;
@@ -84,6 +85,7 @@ st.markdown(f"""
         font-weight: bold;
         transition: 0.3s;
         box-shadow: 2px 2px 10px rgba(255, 75, 43, 0.6);
+        
     }}
     .stButton button:hover {{
         transform: scale(1.1);
@@ -96,6 +98,20 @@ st.markdown(f"""
         border-radius: 10px;
         text-align: center;
         font-weight: bold;
+    }}
+    .spam-container {{
+        background-color: green;
+        color: Red;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+    }}
+    div[data-testid="stProgress"] > div > div > div {{
+        background-color: #ff6f61 !important; /* Change to your desired color */
+        border-radius: 10px;
+        font-weight: bold;
+        box-shadow: 2px 2px 10px rgba(255, 75, 43, 0.6);
     }}
     </style>
 """, unsafe_allow_html=True)
@@ -113,7 +129,7 @@ def transform_text(text):
     return " ".join(filtered_words)
 
 # App Layout
-st.markdown("<h1 class='title'>📩 Pankaj Singh SMS/Email Spam Predictor 🚀</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='title'>📩 Pankaj Singh SMS Spam Predictor Service 🚀</h1>", unsafe_allow_html=True)
 
 with st.container():
     st.markdown("<div class='container'>", unsafe_allow_html=True)
@@ -138,11 +154,11 @@ with st.container():
                 result_class = "spam-container" if result == 1 else "safe-container"
                 result_text = "🚨 This is SPAM! 🚨" if result == 1 else "✅ This is NOT Spam ✅"
                 probability = f"{spam_prob * 100:.2f}%"
-
+                
                 st.markdown(f"""
                     <div class='{result_class}'>
                         <h2>{result_text}</h2>
-                        <p>Spam Probability: {probability}</p>
+                        <p style='font-size: 20px'>Spam Probability: {probability}</p>
                     </div>
                 """, unsafe_allow_html=True)
 
