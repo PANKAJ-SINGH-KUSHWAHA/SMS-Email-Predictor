@@ -10,7 +10,7 @@ from nltk.stem.porter import PorterStemmer
 # Set up NLTK data directory
 NLTK_DIR = os.path.expanduser("~/.nltk_data")  
 nltk.data.path.append(NLTK_DIR)  
-
+nltk.download('punkt_tab')
 # Download required resources if not available
 nltk.download('punkt', download_dir=NLTK_DIR)
 nltk.download('stopwords', download_dir=NLTK_DIR)
