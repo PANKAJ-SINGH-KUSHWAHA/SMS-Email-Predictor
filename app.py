@@ -138,11 +138,30 @@ st.markdown(f"""
 # Function to preprocess text
 def transform_text(text):
     text = text.lower()
-    tokens = nltk.word_tokenize(text)
-    tokens = [word for word in tokens if word.isalnum()]  # Remove non-alphanumeric characters
-    tokens = [word for word in tokens if word not in stop_words]  # Remove stopwords
-    tokens = [ps.stem(word) for word in tokens]  # Perform stemming
-    return " ".join(tokens)
+    text = nltk.word_tokenize(text)
+
+    y = []
+    for i in text:
+        if i.isalnum():
+            y.append(i)
+
+    text = y[:]
+    y.clear()
+
+    for i in text:
+        if i not in stopwords.words('english') and i not in string.punctuation:
+            y.append(i)
+
+    text = y[:]
+    y.clear()
+
+    for i in text:
+        y.append(ps.stem(i))
+
+    return " ".join(y)
+
+tfidf = pickle.load(open('vectorizer.pkl','rb'))
+model = pickle.load(open('model.pkl','rb'))
 
 # App Layout
 st.markdown("<h1 class='title'>📩 Pankaj Singh SMS/Email Spam Predictor Service 🚀</h1>", unsafe_allow_html=True)
