@@ -6,9 +6,19 @@ import base64
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
 # Download necessary NLTK data
+import nltk
+import os
+
+NLTK_DIR = os.path.expanduser("~/.nltk_data")  # Set custom path
+nltk.data.path.append(NLTK_DIR)  # Ensure nltk looks here
+
+# Download 'punkt' to the custom directory
+nltk.download("punkt", download_dir=NLTK_DIR)
 nltk.download('stopwords')
 nltk.download('punkt')
 from nltk.tokenize import word_tokenize
+
+
 # Initialize Stemmer
 ps = PorterStemmer()
 
