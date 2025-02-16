@@ -5,8 +5,7 @@ import nltk
 import base64
 import os
 from nltk.stem.porter import PorterStemmer
-from nltk.tokenize import word_tokenize
-from nltk.corpus import stopwords
+
 
 # Set up NLTK data directory
 NLTK_DIR = os.path.expanduser("~/.nltk_data")  
