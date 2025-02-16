@@ -8,7 +8,7 @@ from nltk.corpus import stopwords
 # Download necessary NLTK data
 nltk.download('stopwords')
 nltk.download('punkt')
-
+from nltk.tokenize import word_tokenize
 # Initialize Stemmer
 ps = PorterStemmer()
 
@@ -134,6 +134,7 @@ st.markdown(f"""
     }}
     </style>
     """, unsafe_allow_html=True)
+
 
 # Function to preprocess text
 def transform_text(text):
