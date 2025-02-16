@@ -91,6 +91,7 @@ st.markdown(f"""
     .stTextArea textarea, .stTextInput input {{
         border-radius: 10px;
         border: 2px solid #ff6f61;
+        caret-color: black !important;
         padding: 12px;
         font-size: 16px;
         color: #000;
