@@ -12,6 +12,23 @@ nltk.download('punkt')
 # Initialize Stemmer
 ps = PorterStemmer()
 
+import nltk
+import os
+
+# Set up NLTK data directory
+nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
+if not os.path.exists(nltk_data_path):
+    os.makedirs(nltk_data_path)
+
+# Set the NLTK data path
+nltk.data.path.append(nltk_data_path)
+
+# Download required NLTK resources
+nltk.download('punkt', download_dir=nltk_data_path)
+
+# Now your tokenizer will work without lookup errors
+
+
 # Load vectorizer and model with error handling
 try:
     tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
