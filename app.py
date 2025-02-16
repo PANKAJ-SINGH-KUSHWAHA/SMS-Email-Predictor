@@ -15,8 +15,8 @@ nltk.data.path.append(NLTK_DIR)
 # Download required resources if not available
 nltk.download('punkt', download_dir=NLTK_DIR)
 nltk.download('stopwords', download_dir=NLTK_DIR)
-nltk.download('punkt')
-nltk.download('stopwords')
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 # Initialize Porter Stemmer
 ps = PorterStemmer()
 
